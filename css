@@ -1,0 +1,134 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #050505;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efecto de Humo Dinámico */
+.smoke-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: radial-gradient(circle at center, #111d2b 0%, #050505 100%);
+}
+
+.smoke-layer {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    opacity: 0.3;
+    animation: smokeShift 20s linear infinite;
+}
+
+@keyframes smokeShift {
+    from { transform: translate(-10%, -10%) rotate(0deg); }
+    to { transform: translate(0%, 0%) rotate(5deg); }
+}
+
+/* Contenedor Principal */
+.main-wrapper {
+    text-align: center;
+    z-index: 10;
+    perspective: 1000px; /* Habilita el efecto 3D */
+}
+
+.header-text h1 {
+    font-size: 2rem;
+    color: #4cc9f0;
+    text-shadow: 0 0 15px rgba(76, 201, 240, 0.5);
+    margin-bottom: 10px;
+}
+
+.header-text p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+}
+
+/* Círculo Central con Efecto 3D */
+.circle-3d {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 50px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+}
+
+.inner-logo {
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #4cc9f0;
+    border: 2px solid #4cc9f0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(76, 201, 240, 0.2);
+}
+
+.glow-ring {
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border-radius: 50%;
+    border: 2px dashed rgba(76, 201, 240, 0.4);
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Fila de Botones */
+.social-links-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    animation: floatAnim 3s ease-in-out infinite;
+}
+
+@keyframes floatAnim {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Colores de marca */
+.tiktok { background: #000; border: 2px solid #ff0050; animation-delay: 0s; }
+.whatsapp { background: #25D366; animation-delay: 0.2s; }
+.instagram { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); animation-delay: 0.4s; }
+
+.social-btn:hover {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}
